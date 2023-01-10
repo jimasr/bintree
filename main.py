@@ -15,6 +15,8 @@ def main():
 	print(f"Minimum value: {tree.minimum()}")
 	print(f"Maximum value: {tree.maximum()}")
 
+	print(f"Deleting 15: {tree.delete(15)}")
+
 	print(tree)
 
 if __name__ == '__main__':

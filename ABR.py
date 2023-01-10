@@ -82,3 +82,49 @@ class ABR(Node):
 			tab = self.sort(node.right, tab)
 
 		return tab
+
+	def delete(self, value : int) -> bool:
+		node = self
+		parent = None
+
+		while node is not None:
+			if value == node.value:
+				if node.left is None and node.right is None:
+					if parent is None:
+						self.value = None
+					elif parent.left == node:
+						parent.left = None
+					else:
+						parent.right = None
+				elif node.left is None:
+					if parent is None:
+						self.value = node.right.value
+						self.left = node.right.left
+						self.right = node.right.right
+					elif parent.left == node:
+						parent.left = node.right
+					else:
+						parent.right = node.right
+				elif node.right is None:
+					if parent is None:
+						self.value = node.left.value
+						self.left = node.left.left
+						self.right = node.left.right
+					elif parent.left == node:
+						parent.left = node.left
+					else:
+						parent.right = node.left
+				else:
+					minimum = self.minimum(node.right)
+					self.delete(minimum)
+					node.value = minimum
+
+				return True
+			elif value < node.value:
+				parent = node
+				node = node.left
+			else:
+				parent = node
+				node = node.right
+
+		return False
