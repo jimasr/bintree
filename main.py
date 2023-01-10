@@ -6,3 +6,8 @@ if __name__ == '__main__':
 	tree = ABR(VALUES)
 
 	print(tree)
+
+	print(tree.search(4))
+	print(tree.search(100))
+
+	print(tree.sort())
