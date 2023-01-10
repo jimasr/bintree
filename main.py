@@ -12,5 +12,10 @@ def main():
 
 	print(f"Sorted values: {tree.sort()}")
 
+	print(f"Minimum value: {tree.minimum()}")
+	print(f"Maximum value: {tree.maximum()}")
+
+	print(tree)
+
 if __name__ == '__main__':
 	main()

@@ -32,8 +32,9 @@ class ABR(Node):
 
 		return True
 
-	def minimum(self) -> int | None:
-		node = self
+	def minimum(self, node: Node | None = None) -> int:
+		if node is None:
+			node = self
 
 		while node is not None:
 			if node.left is None:
@@ -41,10 +42,11 @@ class ABR(Node):
 			else:
 				node = node.left
 
-		return None
+		return node.value
 
-	def maximum(self) -> int | None:
-		node = self
+	def maximum(self, node: Node | None = None) -> int:
+		if node is None:
+			node = self
 
 		while node is not None:
 			if node.right is None:
@@ -52,7 +54,7 @@ class ABR(Node):
 			else:
 				node = node.right
 
-		return None
+		return node.value
 
 	def search(self, value: int) -> bool:
 		node = self
