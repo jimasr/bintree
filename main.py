@@ -9,3 +9,5 @@ if __name__ == '__main__':
 
 	print(tree.search(4))
 	print(tree.search(100))
+
+	print(tree.sort())
