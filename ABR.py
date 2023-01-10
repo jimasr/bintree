@@ -32,6 +32,20 @@ class ABR(Node):
 
 		return True
 
+	def height(self, node: Node | None = None) -> int:
+		if node is None:
+			return -1
+
+		leftHeight = self.height(node.left)
+		rightHeight = self.height(node.right)
+		return max(leftHeight, rightHeight) + 1
+
+	def size(self, node: Node | None = None) -> int:
+		if node is None:
+			return 0
+
+		return self.size(node.left) + self.size(node.right) + 1
+
 	def minimum(self, node: Node | None = None) -> int:
 		if node is None:
 			node = self
@@ -83,7 +97,7 @@ class ABR(Node):
 
 		return tab
 
-	def delete(self, value : int) -> bool:
+	def delete(self, value: int) -> bool:
 		node = self
 		parent = None
 

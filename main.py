@@ -7,6 +7,9 @@ def main():
 
 	print(tree)
 
+	print(f"Height: {tree.height(tree)}")
+	print(f"Size: {tree.size(tree)}")
+
 	print(f"Searching for 4: {tree.search(4)}")
 	print(f"Searching for 100: {tree.search(100)}")
 
