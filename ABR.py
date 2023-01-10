@@ -31,3 +31,16 @@ class ABR(Node):
 				return False
 
 		return True
+
+	def search(self, value: int) -> bool:
+		node = self
+
+		while node is not None:
+			if value == node.value:
+				return True
+			elif value < node.value:
+				node = node.left
+			else:
+				node = node.right
+
+		return False
