@@ -7,9 +7,6 @@ def main():
 
 	print(tree)
 
-	print(f"Height: {tree.height(tree)}")
-	print(f"Size: {tree.size(tree)}")
-
 	print(f"Searching for 4: {tree.search(4)}")
 	print(f"Searching for 100: {tree.search(100)}")
 
@@ -20,7 +17,8 @@ def main():
 
 	print(f"Deleting 15: {tree.delete(15)}")
 
-	print(tree)
+	balancedTree = tree.balance(0, len(VALUES) - 1)
+	print(balancedTree)
 
 if __name__ == '__main__':
 	main()

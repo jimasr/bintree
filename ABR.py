@@ -142,3 +142,18 @@ class ABR(Node):
 				node = node.right
 
 		return False
+	
+	def balance(self, start : int, end : int) -> Node:
+
+		if start > end:
+			return None
+
+		sorted_values = self.sort()
+		middle = (start + end) // 2
+
+		node = Node(sorted_values[middle])
+
+		node.left = self.balance(start, middle	- 1)
+		node.right = self.balance(middle + 1, end)
+
+		return node
