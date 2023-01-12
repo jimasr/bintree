@@ -1,7 +1,7 @@
 from binarytree import Node
 
 class ABR(Node):
-	def __init__(self, values: list[int]):
+	def __init__(self, *values: int):
 		super().__init__(values[0])
 
 		self.plants(values[1:])
@@ -142,7 +142,7 @@ class ABR(Node):
 				node = node.right
 
 		return False
-	
+
 	def balance(self, start : int, end : int) -> Node:
 
 		if start > end:
@@ -151,7 +151,7 @@ class ABR(Node):
 		sorted_values = self.sort()
 		middle = (start + end) // 2
 
-		node = Node(sorted_values[middle])
+		node = ABR(sorted_values[middle])
 
 		node.left = self.balance(start, middle	- 1)
 		node.right = self.balance(middle + 1, end)
